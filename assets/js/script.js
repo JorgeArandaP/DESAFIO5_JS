@@ -29,7 +29,7 @@ function renderTarea() {
     for (let tarea of tareas) {
         html += `
         <tr>
-            <th scope="row">${tarea.id}</th>
+            <td scope="row">${tarea.id}</th>
             <td id="${tarea.id}">${tarea.descrip}</td>
             <th><input onclick="cambiar(this, ${tarea.id})" class="form-check-input" type="checkbox" value="" id="defaultCheck1"></th>
             <th><button onclick="borrar(${tarea.id})" type="button" class="btn btn-outline-danger">Borrar</button></th>
