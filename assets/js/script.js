@@ -30,8 +30,8 @@ function renderTarea() {
         html += `
         <tr>
             <td scope="row">${tarea.id}</th>
-            <td id="${tarea.id}">${tarea.descrip}</td>
-            <th><input onclick="cambiar(this, ${tarea.id})" class="form-check-input" type="checkbox" value="" id="defaultCheck1"></th>
+            <td id="${tarea.id}" style="${tarea.realizada ? 'text-decoration: line-through': ''}">${tarea.descrip}</td>            
+            <th><input onclick="cambiar(this, ${tarea.id})" class="form-check-input" type="checkbox" ${tarea.realizada ? 'checked' : '' } value="" id="defaultCheck1" }></th>
             <th><button onclick="borrar(${tarea.id})" type="button" class="btn btn-outline-danger">Borrar</button></th>
         </tr>`;
     }
@@ -62,6 +62,7 @@ function borrar(id){
     const index = tareas.findIndex((ele) => ele.id == id)
     tareas.splice(index, 1)
     renderTarea()
+    renderResumen()
 }
 
 function cambiar(checkbox, id) {
