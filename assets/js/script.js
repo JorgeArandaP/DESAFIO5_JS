@@ -30,7 +30,7 @@ function renderTarea() {
         html += `
         <tr>
             <th scope="row">${tarea.id}</th>
-            <td>${tarea.descrip}</td>
+            <td id="${tarea.id}">${tarea.descrip}</td>
             <th><input onclick="cambiar(this, ${tarea.id})" class="form-check-input" type="checkbox" value="" id="defaultCheck1"></th>
             <th><button onclick="borrar(${tarea.id})" type="button" class="btn btn-outline-danger">Borrar</button></th>
         </tr>`;
@@ -68,7 +68,14 @@ function cambiar(checkbox, id) {
     const esClickeado = checkbox.checked;
     const index = tareas.findIndex((ele) => ele.id == id)
     tareas[index].realizada = esClickeado ? true : false;
-   
+    parrafo = String(id)
+    const tareaRealizada = document.getElementById(parrafo)
+    if (esClickeado) {
+        tareaRealizada.style.textDecoration = 'line-through';
+    }
+    else {
+        tareaRealizada.style.textDecoration = 'none';
+    }
     renderResumen()
 }
 
