@@ -1,8 +1,27 @@
-const tareas = []
+const tareas = [
+    { 
+        id: 1212,
+        descrip: 'Tarea1',
+        realizada: false,
+    },
+    { 
+        id: 1213,
+        descrip: 'Tarea2',
+        realizada: false,
+    },
+    { 
+        id: 1214,
+        descrip: 'Tarea3',
+        realizada: false,
+    }
+
+]
 const listaDeTareas = document.querySelector('#listaTareas')
 const tareaInput = document.querySelector('#nuevaTarea')
 const btnAgregar = document.querySelector('#agregarTarea')
 const resTareas = document.querySelector('#resumenTareas')
+
+renderTarea()
 
 function renderTarea() {
 
