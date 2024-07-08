@@ -9,33 +9,33 @@
     <link href="./assets/css/style.css" rel="stylesheet">
 </head>
 <body>
-    <h1>To do List</h1>
+    <h1 class="px-4 d-flex justify-content-center">To do List</h1>
     <hr>
-    <p>Nueva tarea</p>
-    <div class="input-group mb-3">
+    <p class="px-4 d-flex justify-content-center">Nueva tarea</p>
+    <div class="input-group mb-3 px-5">
         <input id='nuevaTarea' type="text" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button class="btn btn-outline-secondary" type="button" id="agregarTarea">Button</button>
+        <button class="btn  btn-success" type="button" id="agregarTarea">Agregar</button>
     </div>
-    <div id="resumenTareas">
-      <p>Total de tareas: </p>
-      <p>Realizadas:</p>
+    <div id="resumenTareas" class=" d-flex justify-content-evenly mt-4 mb-4">
+      <p class="h5">Total de tareas: </p>
+      <p class="h5">Realizadas:</p>
     </div>
-
-    <table  class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Tarea</th>
-            <th scope="col">Realizada</th>
+    <div class="d-flex justify-content-center">
+      <table  class="table table-striped px-4 w-75">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Tarea</th>
+              <th scope="col">Realizada</th>
+              
+            </tr>
+          </thead>
+          <tbody id='listaTareas'>
             
-          </tr>
-        </thead>
-        <tbody id='listaTareas'>
-          
-          
-        </tbody>
-      </table>
-    
+            
+          </tbody>
+        </table>
+    </div>
     <script src="./assets/js/script.js"></script>
 
 </body>

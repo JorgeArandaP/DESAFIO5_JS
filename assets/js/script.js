@@ -1,16 +1,16 @@
 const tareas = [
     { 
-        id: 1212,
+        id:  Math.floor(Math.random() * 90) + 10,
         descrip: 'Tarea1',
         realizada: false,
     },
     { 
-        id: 1213,
+        id:  Math.floor(Math.random() * 90) + 10,
         descrip: 'Tarea2',
         realizada: false,
     },
     { 
-        id: 1214,
+        id:  Math.floor(Math.random() * 90) + 10,
         descrip: 'Tarea3',
         realizada: false,
     }
@@ -30,7 +30,7 @@ function renderTarea() {
         html += `
         <tr>
             <td scope="row">${tarea.id}</th>
-            <td id="${tarea.id}" style="${tarea.realizada ? 'text-decoration: line-through': ''}">${tarea.descrip}</td>            
+            <td id="${tarea.id}" style="${tarea.realizada ? 'text-decoration: line-through; color: green': ''}">${tarea.descrip}</td>            
             <th><input onclick="cambiar(this, ${tarea.id})" class="form-check-input" type="checkbox" ${tarea.realizada ? 'checked' : '' } value="" id="defaultCheck1" }></th>
             <th><button onclick="borrar(${tarea.id})" type="button" class="btn btn-outline-danger">Borrar</button></th>
         </tr>`;
@@ -38,21 +38,21 @@ function renderTarea() {
     listaDeTareas.innerHTML = html;
 
     let html1 = `
-    <p>Total de tareas: ${tareas.length}</p>
-    <p>Realizadas: ${tareas.filter(tarea => tarea.realizada == true).length}</p>`;
+    <p class="h5">Total de tareas: ${tareas.length}</p>
+    <p class="h5">Realizadas: ${tareas.filter(tarea => tarea.realizada == true).length}</p>`;
     resTareas.innerHTML = html1;
 } 
 
 function renderResumen() {
     let html1 = `
-    <p>Total de tareas: ${tareas.length}</p>
-    <p>Realizadas: ${tareas.filter(tarea => tarea.realizada == true).length}</p>`;
+    <p class="h5">Total de tareas: ${tareas.length}</p>
+    <p class="h5"x>Realizadas: ${tareas.filter(tarea => tarea.realizada == true).length}</p>`;
     resTareas.innerHTML = html1;
 }
 
 btnAgregar.addEventListener('click', () => {
     const nuevaTarea = tareaInput.value
-    tareas.push({id: Date.now(), descrip: nuevaTarea, realizada: false})
+    tareas.push({id: Math.floor(Math.random() * 90) + 10, descrip: nuevaTarea, realizada: false})
     tareaInput.value = '';  
     renderTarea()
 
@@ -73,9 +73,11 @@ function cambiar(checkbox, id) {
     const tareaRealizada = document.getElementById(parrafo)
     if (esClickeado) {
         tareaRealizada.style.textDecoration = 'line-through';
+        tareaRealizada.style.color = 'green';
     }
     else {
         tareaRealizada.style.textDecoration = 'none';
+        tareaRealizada.style.color = 'black';
     }
     renderResumen()
 }
